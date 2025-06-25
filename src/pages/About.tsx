@@ -28,7 +28,7 @@ const About = () => {
               <div className="w-20 h-1 bg-gradient-to-r from-emerald-400 to-teal-500 mx-auto mb-8" />
               <div className="max-w-4xl mx-auto">
                 <p className="text-xl text-gray-300 leading-relaxed mb-6 font-semibold">
-                  Hi, I’m <strong>Mushfiqur M  MMMMMMMMM Rahman</strong>, a final-year CSE student at BUET.
+                  Hi, I’m <strong>Mushfiqur Rahman</strong>, a final-year CSE student at BUET.
                 </p>
                 <p className="text-lg text-gray-300 leading-relaxed mb-6">
                   My research interests include natural language processing, software automation and testing, autonomous transportation systems, and bioinformatics and computational biology.
