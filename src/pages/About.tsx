@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const About = () => {
+  const showCV = false; // Set to false to hide the CV download button
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       <Navigation />
@@ -91,16 +92,18 @@ const About = () => {
             </div>
 
             {/* CV Download */}
-            <div className="text-center mb-16">
-              <a
-                href="/CV.pdf"
-                download
-                className="inline-flex items-center px-8 py-4 rounded-xl bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 hover:from-blue-500 hover:via-purple-600 hover:to-pink-600 text-white font-semibold shadow-lg hover:shadow-xl transform hover:scale-110 hover:rotate-1 transition-all duration-300 hover:shadow-blue-500/30"
-              >
-                <Download className="w-5 h-5 mr-3 transition-all duration-300 hover:animate-bounce" />
-                Download CV
-              </a>
-            </div>
+            {showCV && (
+              <div className="text-center mb-16">
+                <a
+                  href="/CV.pdf"
+                  download
+                  className="inline-flex items-center px-8 py-4 rounded-xl bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 hover:from-blue-500 hover:via-purple-600 hover:to-pink-600 text-white font-semibold shadow-lg hover:shadow-xl transform hover:scale-110 hover:rotate-1 transition-all duration-300 hover:shadow-blue-500/30"
+                >
+                  <Download className="w-5 h-5 mr-3 transition-all duration-300 hover:animate-bounce" />
+                  Download CV
+                </a>
+              </div>
+            )}
 
             {/* Education Section */}
             <div className="mb-16">
