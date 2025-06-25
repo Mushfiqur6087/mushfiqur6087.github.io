@@ -8,6 +8,12 @@ on:
     paths-ignore:
       - 'docs/**'
 
+# Grant the necessary permissions for the Pages actions
+permissions:
+  contents: read     # to checkout your code
+  pages: write       # to publish to GitHub Pages
+  id-token: write    # required by actions/deploy-pages@v1
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -33,7 +39,7 @@ jobs:
         uses: actions/configure-pages@v3
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v2
         with:
           path: docs
 
