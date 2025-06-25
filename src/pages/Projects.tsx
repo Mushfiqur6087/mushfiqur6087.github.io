@@ -13,21 +13,21 @@ const ProjectsPage = () => {
           <div className="max-w-6xl mx-auto">
             <Projects />
             {/* Navigation */}
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center pt-8 border-t border-slate-700">
               <Link to="/">
                 <Button 
-                  className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white"
+                  className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 hover:from-blue-500 hover:via-purple-600 hover:to-pink-600 text-white transform hover:scale-110 hover:-rotate-1 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30"
                 >
-                  <ArrowLeft className="mr-2" size={16} />
+                  <ArrowLeft className="mr-2 transition-all duration-300 hover:-translate-x-1" size={16} />
                   Previous: About
                 </Button>
               </Link>
               <Link to="/achievements">
                 <Button 
-                  className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white"
+                  className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 hover:from-blue-500 hover:via-purple-600 hover:to-pink-600 text-white transform hover:scale-110 hover:rotate-1 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30"
                 >
                   Next: Achievements
-                  <ArrowRight className="ml-2" size={16} />
+                  <ArrowRight className="ml-2 transition-all duration-300 hover:translate-x-1" size={16} />
                 </Button>
               </Link>
             </div>

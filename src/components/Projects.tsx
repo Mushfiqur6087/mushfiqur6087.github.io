@@ -144,17 +144,18 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <section className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight hover:text-blue-400 transition-colors duration-300 cursor-default">
             <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
               Featured Projects
             </span>
           </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 mx-auto mb-8" />
           
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed hover:text-blue-300 transition-colors duration-300 cursor-default">
             A curated collection of my academic projects and personal explorations, 
             showcasing innovation across web development, machine learning, and systems programming.
           </p>
@@ -166,10 +167,10 @@ const Projects = () => {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
+              className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${
                 selectedCategory === category
-                  ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-blue-500/25"
-                  : "bg-slate-800/50 text-gray-300 border border-slate-700 hover:border-blue-500/50 hover:text-white"
+                  ? "bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/30"
+                  : "bg-slate-800/50 text-gray-300 border border-slate-700 hover:border-blue-400/50 hover:text-blue-400 hover:bg-blue-900/50"
               }`}
             >
               {category}
@@ -182,7 +183,7 @@ const Projects = () => {
           {filteredProjects.map((project, index) => (
             <div 
               key={`${project.title}-${index}`}
-              className="group bg-slate-800/30 backdrop-blur-xl rounded-2xl overflow-hidden border border-slate-700/50 hover:border-blue-500/30 transition-all duration-500 transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-500/10"
+              className="group bg-slate-800/30 backdrop-blur-xl rounded-2xl overflow-hidden border border-slate-700/50 hover:border-blue-400/30 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2"
             >
               {/* Project Image */}
               <div className="aspect-video overflow-hidden bg-slate-900/50 relative">
@@ -195,7 +196,7 @@ const Projects = () => {
                 
                 {/* Category Badge */}
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-black/60 backdrop-blur-sm text-white text-xs font-medium rounded-full border border-white/10">
+                  <span className="px-3 py-1 bg-black/60 backdrop-blur-sm text-white text-xs font-medium rounded-xl border border-white/10 hover:text-blue-400 transition-colors duration-300">
                     {project.category}
                   </span>
                 </div>
@@ -203,17 +204,17 @@ const Projects = () => {
               
               {/* Project Content */}
               <div className="p-7">
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300 cursor-default">
                   {project.title}
                 </h3>
                 
-                <p className="text-gray-400 mb-5 text-sm leading-relaxed line-clamp-3">
+                <p className="text-gray-400 mb-5 text-sm leading-relaxed line-clamp-3 hover:text-blue-300 transition-colors duration-300 cursor-default">
                   {project.description}
                 </p>
                 
                 {/* Project Duration */}
-                <div className="flex items-center gap-2 mb-5 text-xs text-gray-500">
-                  <Calendar size={14} />
+                <div className="flex items-center gap-2 mb-5 text-xs text-gray-500 hover:text-blue-400 transition-colors duration-300 cursor-default">
+                  <Calendar size={14} className="hover:text-blue-400 transition-colors duration-300" />
                   <span>{formatDateRange(project.startDate, project.endDate)}</span>
                 </div>
                 
@@ -222,13 +223,13 @@ const Projects = () => {
                   {project.technologies.slice(0, 4).map((tech) => (
                     <span 
                       key={tech}
-                      className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 rounded-lg text-xs font-medium border border-blue-500/20"
+                      className="px-3 py-1 bg-gradient-to-r from-blue-400/20 to-purple-500/20 text-blue-400 rounded-lg text-xs font-medium border border-blue-400/20 hover:border-blue-400/50 hover:bg-blue-400/10 transition-all duration-300 cursor-default"
                     >
                       {tech}
                     </span>
                   ))}
                   {project.technologies.length > 4 && (
-                    <span className="px-3 py-1 bg-slate-700/50 text-gray-400 rounded-lg text-xs font-medium">
+                    <span className="px-3 py-1 bg-slate-700/50 text-gray-400 rounded-lg text-xs font-medium hover:text-blue-400 transition-colors duration-300 cursor-default">
                       +{project.technologies.length - 4}
                     </span>
                   )}
@@ -245,9 +246,9 @@ const Projects = () => {
                     >
                       <Button 
                         size="sm" 
-                        className="bg-gradient-to-r from-slate-700 to-slate-600 hover:from-slate-600 hover:to-slate-500 border-none text-white flex justify-center items-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-full group"
+                        className="bg-slate-800/50 hover:bg-blue-900/50 border border-slate-700 hover:border-blue-400/50 text-white hover:text-blue-400 flex justify-center items-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-full group"
                       >
-                        <Github size={16} className="group-hover:rotate-12 transition-transform duration-300" />
+                        <Github size={16} className="group-hover:rotate-12 group-hover:text-blue-400 transition-all duration-300" />
                         <span className="text-sm font-medium">Code</span>
                       </Button>
                     </a>
@@ -264,8 +265,8 @@ const Projects = () => {
                         size="sm" 
                         className={`border-none text-white flex justify-center items-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-full group ${
                           project.liveUrl.includes("youtube.com")
-                            ? "bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400"
-                            : "bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400"
+                            ? "bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 hover:shadow-red-500/20"
+                            : "bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 hover:from-blue-500 hover:via-purple-600 hover:to-pink-600 hover:shadow-blue-500/30"
                         }`}
                       >
                         {project.liveUrl.includes("youtube.com") ? (
@@ -291,11 +292,11 @@ const Projects = () => {
         {/* Empty State */}
         {filteredProjects.length === 0 && (
           <div className="text-center py-16">
-            <div className="w-24 h-24 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Filter size={32} className="text-gray-500" />
+            <div className="w-24 h-24 bg-slate-800/50 rounded-full flex items-center justify-center mx-auto mb-6 hover:bg-blue-900/50 transition-colors duration-300">
+              <Filter size={32} className="text-gray-500 hover:text-blue-400 transition-colors duration-300" />
             </div>
-            <h3 className="text-2xl font-semibold text-gray-400 mb-2">No projects found</h3>
-            <p className="text-gray-500">Try selecting a different category</p>
+            <h3 className="text-2xl font-semibold text-gray-400 mb-2 hover:text-blue-400 transition-colors duration-300 cursor-default">No projects found</h3>
+            <p className="text-gray-500 hover:text-blue-300 transition-colors duration-300 cursor-default">Try selecting a different category</p>
           </div>
         )}
       </div>

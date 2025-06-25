@@ -1,7 +1,6 @@
 import Navigation from "@/components/Navigation";
 import { ArrowLeft, ArrowRight, BookOpen, Zap, Calendar, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 
 export default function Research() {
@@ -42,128 +41,116 @@ export default function Research() {
       <Navigation />
       <main className="pt-16">
         <section className="py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto space-y-12">
-            {/* Header */}
-            <div className="text-center mb-20">
-              <h1 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+          <div className="max-w-6xl mx-auto">
+            {/* Hero Section */}
+            <div className="text-center mb-16">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight hover:text-blue-400 transition-colors duration-300 cursor-default">
                 <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                   Research
                 </span>
               </h1>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                Academic contributions and ongoing research in software engineering and AI
+              <div className="w-20 h-1 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 mx-auto mb-8" />
+              <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed hover:text-blue-300 transition-colors duration-300 cursor-default">
+                Academic contributions and ongoing research in software engineering, natural language processing, and autonomous systems.
               </p>
             </div>
 
             {/* Publications Section */}
-            <div className="space-y-6">
-              <div className="flex items-center gap-3">
-                <div className="flex items-center justify-center w-10 h-10 bg-emerald-500/20 rounded-lg">
-                  <BookOpen className="w-5 h-5 text-emerald-400" />
+            <div className="mb-16">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="flex items-center justify-center w-12 h-12 bg-blue-500/20 rounded-xl border border-blue-400/30 hover:bg-blue-500/30 hover:border-blue-400/50 transition-all duration-300">
+                  <BookOpen className="w-6 h-6 text-blue-400 hover:text-blue-300 transition-colors duration-300" />
                 </div>
-                <h2 className="text-2xl font-semibold text-white">Publications</h2>
+                <h2 className="text-3xl font-semibold text-white hover:text-blue-400 transition-colors duration-300 cursor-default">Publications</h2>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-8">
                 {publications.map((pub, index) => (
-                  <Card key={index} className="bg-slate-800/60 border-slate-700 hover:border-emerald-500/50 transition-all duration-300">
-                    <CardHeader className="pb-4">
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="flex-1">
-                          <CardTitle className="text-lg font-semibold text-white leading-relaxed">
-                            {pub.title}
-                          </CardTitle>
-                          <p className="text-emerald-400 text-sm font-medium mt-2">
-                            {pub.authors}
-                          </p>
-                          <p className="text-gray-400 text-sm italic mt-1">
-                            {pub.venue}
-                          </p>
-                          <div className="flex items-center gap-4 mt-3 text-xs text-gray-500">
-                            <div className="flex items-center gap-1">
-                              <Calendar className="w-3 h-3" />
-                              {pub.period}
-                            </div>
-                            <span className="text-emerald-400">DOI: {pub.doi}</span>
-                          </div>
+                  <div key={index} className="group bg-slate-800/30 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 hover:border-blue-400/30 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-2">
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-bold text-white leading-relaxed hover:text-blue-400 transition-colors duration-300 cursor-default">
+                        {pub.title}
+                      </h3>
+                      <p className="text-blue-400 font-medium text-lg hover:text-blue-300 transition-colors duration-300 cursor-default">
+                        {pub.authors}
+                      </p>
+                      <p className="text-gray-400 italic hover:text-blue-400 transition-colors duration-300 cursor-default">
+                        {pub.venue}
+                      </p>
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-sm">
+                        <div className="flex items-center gap-2 text-gray-500 hover:text-blue-400 transition-colors duration-300 cursor-default">
+                          <Calendar className="w-4 h-4" />
+                          {pub.period}
                         </div>
+                        <span className="text-blue-400 font-medium hover:text-blue-300 transition-colors duration-300 cursor-default">
+                          DOI: {pub.doi}
+                        </span>
                       </div>
-                    </CardHeader>
-                    <CardContent className="pt-0">
-                      <div className="grid gap-2">
+                      <div className="space-y-2 mt-6">
                         {pub.highlights.map((highlight, idx) => (
-                          <div key={idx} className="flex items-start gap-2 text-gray-300 text-sm">
-                            <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0" />
-                            {highlight}
+                          <div key={idx} className="flex items-start gap-3 text-gray-300 hover:text-blue-400 transition-colors duration-300 cursor-default">
+                            <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0 group-hover:bg-blue-300 transition-colors duration-300" />
+                            <span>{highlight}</span>
                           </div>
                         ))}
                       </div>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
 
             {/* Ongoing Research Section */}
-            <div className="space-y-6">
-              <div className="flex items-center gap-3">
-                <div className="flex items-center justify-center w-10 h-10 bg-teal-500/20 rounded-lg">
-                  <Zap className="w-5 h-5 text-teal-400" />
+            <div className="mb-16">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="flex items-center justify-center w-12 h-12 bg-blue-500/20 rounded-xl border border-blue-400/30 hover:bg-blue-500/30 hover:border-blue-400/50 transition-all duration-300">
+                  <Zap className="w-6 h-6 text-blue-400 hover:text-blue-300 transition-colors duration-300" />
                 </div>
-                <h2 className="text-2xl font-semibold text-white">Ongoing Research</h2>
+                <h2 className="text-3xl font-semibold text-white hover:text-blue-400 transition-colors duration-300 cursor-default">Ongoing Research</h2>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-8">
                 {ongoingResearch.map((research, index) => (
-                  <Card key={index} className="bg-slate-800/60 border-slate-700 hover:border-teal-500/50 transition-all duration-300">
-                    <CardHeader className="pb-4">
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="flex-1">
-                          <CardTitle className="text-lg font-semibold text-white leading-relaxed">
-                            {research.title}
-                          </CardTitle>
-                          {research.subtitle && (
-                            <p className="text-teal-400 text-sm font-medium mt-1">
-                              {research.subtitle}
-                            </p>
-                          )}
-                          <div className="flex items-center gap-1 mt-3 text-xs text-gray-500">
-                            <Calendar className="w-3 h-3" />
-                            {research.period}
-                          </div>
-                        </div>
+                  <div key={index} className="group bg-slate-800/30 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 hover:border-blue-400/30 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-2">
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-bold text-white leading-relaxed hover:text-blue-400 transition-colors duration-300 cursor-default">
+                        {research.title}
+                      </h3>
+                      {research.subtitle && (
+                        <p className="text-blue-400 font-medium text-lg hover:text-blue-300 transition-colors duration-300 cursor-default">
+                          {research.subtitle}
+                        </p>
+                      )}
+                      <div className="flex items-center gap-2 text-sm text-gray-500 hover:text-blue-400 transition-colors duration-300 cursor-default">
+                        <Calendar className="w-4 h-4" />
+                        {research.period}
                       </div>
-                    </CardHeader>
-                    <CardContent className="pt-0">
-                      <div className="grid gap-2">
+                      <div className="space-y-2 mt-6">
                         {research.highlights.map((highlight, idx) => (
-                          <div key={idx} className="flex items-start gap-2 text-gray-300 text-sm">
-                            <div className="w-1.5 h-1.5 bg-teal-400 rounded-full mt-2 flex-shrink-0" />
-                            {highlight}
+                          <div key={idx} className="flex items-start gap-3 text-gray-300 hover:text-blue-400 transition-colors duration-300 cursor-default">
+                            <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0 group-hover:bg-blue-300 transition-colors duration-300" />
+                            <span>{highlight}</span>
                           </div>
                         ))}
                       </div>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
 
             {/* Navigation */}
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 border-t border-slate-700">
-              <Link to="/achievements" className="w-full sm:w-auto">
-                <Button
-                  variant="outline"
-                  className="w-full sm:w-auto border-slate-600 text-gray-300 hover:text-white hover:border-emerald-400 hover:bg-emerald-400/10"
-                >
-                  <ArrowLeft className="mr-2" size={16} />
+            <div className="flex justify-between items-center pt-8 border-t border-slate-700">
+              <Link to="/achievements">
+                <Button className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 hover:from-blue-500 hover:via-purple-600 hover:to-pink-600 text-white transform hover:scale-110 hover:-rotate-1 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30">
+                  <ArrowLeft className="mr-2 transition-all duration-300 hover:-translate-x-1" size={16} />
                   Previous: Achievements
                 </Button>
               </Link>
-              <Link to="/" className="w-full sm:w-auto">
-                <Button className="w-full sm:w-auto bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white">
-                  Back to Home
-                  <ArrowRight className="ml-2" size={16} />
+              <Link to="/skills">
+                <Button className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 hover:from-blue-500 hover:via-purple-600 hover:to-pink-600 text-white transform hover:scale-110 hover:rotate-1 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30">
+                  Next: Skills
+                  <ArrowRight className="ml-2 transition-all duration-300 hover:translate-x-1" size={16} />
                 </Button>
               </Link>
             </div>
