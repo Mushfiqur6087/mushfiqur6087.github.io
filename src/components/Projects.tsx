@@ -65,6 +65,17 @@ const Projects = () => {
       category: "Systems Programming"
     },
     {
+      title: "TCP SYN Flood DOS Attack",
+      description: "A Python implementation of a TCP SYN flood Denial of Service attack that exploits the TCP three-way handshake. Supports two attack modes: a non-spoofed mode using the attacker's real IP, and an IP-spoofed mode with randomized source addresses for harder traceability. Features raw socket packet crafting (custom IPv4 and TCP headers with checksum computation), multi-threaded attack distribution with configurable packets-per-second rate, and a response sniffer that monitors SYN-ACK replies to verify target connectivity.",
+      image: "/images/tcp-syn.png",
+      technologies: ["Python", "Scapy"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/Mushfiqur6087/TCP-SYN-Flood-DOS-Attack",
+      startDate: new Date("2024-03-01"),
+      endDate: new Date("2024-06-01"),
+      category: "Cybersecurity"
+    },
+    {
       title: "BIIS - BUET Institutional Information System Clone",
       description: "A full-stack web application that offers role-based dashboards for administrators, faculty and students to handle course registration, grading, result and profile management.",
       image: "/images/BIIS.png",
