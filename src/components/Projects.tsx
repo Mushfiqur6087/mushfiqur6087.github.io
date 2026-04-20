@@ -22,13 +22,13 @@ const Projects = () => {
   const projects: Project[] = [
     {
       title: "Survey Website",
-      description: "Full-stack web app for visualising pedestrian trajectories, placing knot annotations and reconstructing trajectories for simulation analysis. Developed as part of a research project to analyse pedestrian movement pattern.",
+      description: "A two-phase research platform for pedestrian trajectory annotation and reconstruction, built as a joint collaboration between BUET, Cal Poly, and UC Santa Cruz. Phase 1 lets annotators place strategic knots on pedestrian trajectories to mark significant movement points in real time. Phase 2 reconstructs those trajectories by drawing smooth curves through selected anchor points to validate annotation quality. The insights help improve simulation accuracy for autonomous vehicle safety.",
       image: "images/survey.png",
       technologies: ["Spring Boot", "Next.js", "Python", "PostgreSQL", "TailwindCSS"],
       liveUrl: "https://motiontagger.com/",
       githubUrl: "https://github.com/Mushfiqur6087/Survey-website",
       startDate: new Date("2025-05-01"),
-      endDate: new Date("2025-05-30"),
+      endDate: new Date(),
       category: "Web Development"
     },
     {
@@ -39,8 +39,19 @@ const Projects = () => {
       liveUrl: "#",
       githubUrl: "https://github.com/Mushfiqur6087/Testing-Agent",
       startDate: new Date("2025-05-15"),
-      endDate: new Date("2025-06-06"),
+      endDate: new Date(),
       category: "AI Agent"
+    },
+    {
+      title: "Dormie - Hall Management System",
+      description: "A comprehensive Hall Management System that automates dormitory administration. Features student registration, room allocation & tracking, fee collection & dues management, complaint handling, lost & found, and a Mess-Manager role — all behind role-based access control for Admins, Provosts, and Students. Built with a Next.js frontend, Spring Boot backend, Spring Data JPA for persistence, and fully containerised with Docker Compose for one-command deployment.",
+      image: "/images/dormie.png",
+      technologies: ["Next.js", "Spring Boot", "Spring Data JPA", "MySQL", "Docker"],
+      liveUrl: "https://www.youtube.com/watch?v=bEW4wTEY1lo",
+      githubUrl: "https://github.com/Mushfiqur6087/Dormie",
+      startDate: new Date("2025-02-01"),
+      endDate: new Date("2025-06-30"),
+      category: "Web Development"
     },
 
     {
@@ -152,7 +163,8 @@ const Projects = () => {
 
   const formatDateRange = (startDate: Date, endDate: Date) => {
     const start = startDate.toLocaleString('default', { month: 'short', year: 'numeric' });
-    const end = endDate.toLocaleString('default', { month: 'short', year: 'numeric' });
+    const isToday = endDate.toDateString() === new Date().toDateString();
+    const end = isToday ? 'Present' : endDate.toLocaleString('default', { month: 'short', year: 'numeric' });
     return `${start} - ${end}`;
   };
 
