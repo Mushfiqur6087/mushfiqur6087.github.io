@@ -42,17 +42,7 @@ const Projects = () => {
       endDate: new Date("2025-06-06"),
       category: "AI Agent"
     },
-    {
-      title: "Neural Network from Scratch",
-      description: "A neural network implementation from scratch in C++ featuring multiple layers, forward propagation, backpropagation, and various optimization techniques. The network supports several activation functions including Sigmoid, Softmax, and ReLU.",
-      image: "images/nn.webp",
-      technologies: ["C++"],
-      liveUrl: "#",
-      githubUrl: "https://github.com/Mushfiqur6087/Neural-Network-From-Scratch",
-      startDate: new Date("2024-06-15"),
-      endDate: new Date("2024-06-23"),
-      category: "Deep Learning"
-    },
+
     {
       title: "C Compiler",
       description: "A custom compiler project featuring a full pipeline: lexical analysis, parsing, semantic analysis, and code generation. It converts assembly code into fully working c code.",
@@ -76,7 +66,18 @@ const Projects = () => {
       category: "Cybersecurity"
     },
     {
-      title: "BIIS - BUET Institutional Information System Clone",
+      title: "Neural Network from Scratch",
+      description: "A neural network implementation from scratch in C++ featuring multiple layers, forward propagation, backpropagation, and various optimization techniques. The network supports several activation functions including Sigmoid, Softmax, and ReLU.",
+      image: "images/nn.webp",
+      technologies: ["C++"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/Mushfiqur6087/Neural-Network-From-Scratch",
+      startDate: new Date("2024-01-01"),
+      endDate: new Date("2024-01-31"),
+      category: "Deep Learning"
+    },
+    {
+      title: "BIIS",
       description: "A full-stack web application that offers role-based dashboards for administrators, faculty and students to handle course registration, grading, result and profile management.",
       image: "/images/BIIS.png",
       technologies: ["Node.js", "Express", "EJS", "JavaScript", "MongoDB"],
