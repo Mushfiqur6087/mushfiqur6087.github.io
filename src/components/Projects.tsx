@@ -104,7 +104,7 @@ const Projects = () => {
       category: "Web Development"
     },
     {
-      title: "ALU and MIPS (Simulation + Hardware)",
+      title: "ALU and MIPS",
       description: "Designed a 4-bit ALU and a single-cycle 4-bit MIPS CPU in Logisim, then ported the design to real hardware using an ATmega32 microcontroller and discrete TTL logic gates. Includes custom assembler, simulation testbenches, breadboard schematics.",
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop",
       technologies: ["Logisim", "ATmega32 (AVR)", "C/C++", "Assembly", "TTL Logic"],
@@ -299,7 +299,7 @@ const Projects = () => {
                     >
                       <Button 
                         size="sm" 
-                        className="border-none text-white flex justify-center items-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-full group bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 hover:shadow-red-500/20"
+                        className="bg-slate-800/50 hover:bg-blue-900/50 border border-slate-700 hover:border-blue-400/50 text-white hover:text-blue-400 flex justify-center items-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-full group"
                       >
                         <FaYoutube size={16} className="group-hover:scale-110 transition-transform duration-300" />
                         <span className="text-sm font-medium">{demo.label}</span>
@@ -316,7 +316,7 @@ const Projects = () => {
                     >
                       <Button 
                         size="sm" 
-                        className="border-none text-white flex justify-center items-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-full group bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 hover:from-blue-500 hover:via-purple-600 hover:to-pink-600 hover:shadow-blue-500/30"
+                        className="bg-slate-800/50 hover:bg-blue-900/50 border border-slate-700 hover:border-blue-400/50 text-white hover:text-blue-400 flex justify-center items-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-full group"
                       >
                         <ExternalLink size={16} className="group-hover:rotate-12 transition-transform duration-300" />
                         <span className="text-sm font-medium">Live</span>
@@ -411,7 +411,7 @@ const Projects = () => {
               )}
               {selectedProject.demoUrls && selectedProject.demoUrls.map((demo, idx) => (
                 <a key={idx} href={demo.url} target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[120px]">
-                  <Button size="sm" className="border-none text-white flex justify-center items-center gap-2 transition-all duration-300 w-full group bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400">
+                  <Button size="sm" className="bg-slate-800/50 hover:bg-blue-900/50 border border-slate-700 hover:border-blue-400/50 text-white hover:text-blue-400 flex justify-center items-center gap-2 transition-all duration-300 w-full group">
                     <FaYoutube size={16} />
                     <span className="text-sm font-medium">{demo.label}</span>
                   </Button>
@@ -419,7 +419,7 @@ const Projects = () => {
               ))}
               {selectedProject.liveUrl && selectedProject.liveUrl !== "#" && (
                 <a href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[120px]">
-                  <Button size="sm" className="border-none text-white flex justify-center items-center gap-2 transition-all duration-300 w-full group bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 hover:from-blue-500 hover:via-purple-600 hover:to-pink-600">
+                  <Button size="sm" className="bg-slate-800/50 hover:bg-blue-900/50 border border-slate-700 hover:border-blue-400/50 text-white hover:text-blue-400 flex justify-center items-center gap-2 transition-all duration-300 w-full group">
                     <ExternalLink size={16} />
                     <span className="text-sm font-medium">Live</span>
                   </Button>
