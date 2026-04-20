@@ -9,6 +9,7 @@ interface Project {
   image: string;
   technologies: string[];
   liveUrl: string;
+  demoUrls?: { label: string; url: string }[];
   githubUrl: string;
   startDate: Date;
   endDate: Date;
@@ -47,7 +48,11 @@ const Projects = () => {
       description: "A comprehensive Hall Management System that automates dormitory administration. Features student registration, room allocation & tracking, fee collection & dues management, complaint handling, lost & found, and a Mess-Manager role — all behind role-based access control for Admins, Provosts, and Students. Built with a Next.js frontend, Spring Boot backend, Spring Data JPA for persistence, and fully containerised with Docker Compose for one-command deployment.",
       image: "/images/dormie.png",
       technologies: ["Next.js", "Spring Boot", "Spring Data JPA", "MySQL", "Docker"],
-      liveUrl: "https://www.youtube.com/watch?v=bEW4wTEY1lo",
+      liveUrl: "#",
+      demoUrls: [
+        { label: "Feature Demo", url: "https://www.youtube.com/watch?v=bEW4wTEY1lo" },
+        { label: "Infrastructure Demo", url: "https://www.youtube.com/watch?v=P4edSB8yfHA" }
+      ],
       githubUrl: "https://github.com/Mushfiqur6087/Dormie",
       startDate: new Date("2025-02-01"),
       endDate: new Date("2025-06-30"),
@@ -283,6 +288,24 @@ const Projects = () => {
                     </a>
                   )}
                   
+                  {project.demoUrls && project.demoUrls.map((demo, idx) => (
+                    <a
+                      key={idx}
+                      href={demo.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1"
+                    >
+                      <Button 
+                        size="sm" 
+                        className="border-none text-white flex justify-center items-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-full group bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 hover:shadow-red-500/20"
+                      >
+                        <FaYoutube size={16} className="group-hover:scale-110 transition-transform duration-300" />
+                        <span className="text-sm font-medium">{demo.label}</span>
+                      </Button>
+                    </a>
+                  ))}
+
                   {project.liveUrl && project.liveUrl !== "#" && (
                     <a
                       href={project.liveUrl}
@@ -292,23 +315,10 @@ const Projects = () => {
                     >
                       <Button 
                         size="sm" 
-                        className={`border-none text-white flex justify-center items-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-full group ${
-                          project.liveUrl.includes("youtube.com")
-                            ? "bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 hover:shadow-red-500/20"
-                            : "bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 hover:from-blue-500 hover:via-purple-600 hover:to-pink-600 hover:shadow-blue-500/30"
-                        }`}
+                        className="border-none text-white flex justify-center items-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-full group bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 hover:from-blue-500 hover:via-purple-600 hover:to-pink-600 hover:shadow-blue-500/30"
                       >
-                        {project.liveUrl.includes("youtube.com") ? (
-                          <>
-                            <FaYoutube size={16} className="group-hover:scale-110 transition-transform duration-300" />
-                            <span className="text-sm font-medium">Demo</span>
-                          </>
-                        ) : (
-                          <>
-                            <ExternalLink size={16} className="group-hover:rotate-12 transition-transform duration-300" />
-                            <span className="text-sm font-medium">Live</span>
-                          </>
-                        )}
+                        <ExternalLink size={16} className="group-hover:rotate-12 transition-transform duration-300" />
+                        <span className="text-sm font-medium">Live</span>
                       </Button>
                     </a>
                   )}
@@ -398,18 +408,19 @@ const Projects = () => {
                   </Button>
                 </a>
               )}
+              {selectedProject.demoUrls && selectedProject.demoUrls.map((demo, idx) => (
+                <a key={idx} href={demo.url} target="_blank" rel="noopener noreferrer" className="flex-1">
+                  <Button size="sm" className="border-none text-white flex justify-center items-center gap-2 transition-all duration-300 w-full group bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400">
+                    <FaYoutube size={16} />
+                    <span className="text-sm font-medium">{demo.label}</span>
+                  </Button>
+                </a>
+              ))}
               {selectedProject.liveUrl && selectedProject.liveUrl !== "#" && (
                 <a href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
-                  <Button size="sm" className={`border-none text-white flex justify-center items-center gap-2 transition-all duration-300 w-full group ${
-                    selectedProject.liveUrl.includes("youtube.com")
-                      ? "bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400"
-                      : "bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 hover:from-blue-500 hover:via-purple-600 hover:to-pink-600"
-                  }`}>
-                    {selectedProject.liveUrl.includes("youtube.com") ? (
-                      <><FaYoutube size={16} /><span className="text-sm font-medium">Demo</span></>
-                    ) : (
-                      <><ExternalLink size={16} /><span className="text-sm font-medium">Live</span></>
-                    )}
+                  <Button size="sm" className="border-none text-white flex justify-center items-center gap-2 transition-all duration-300 w-full group bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 hover:from-blue-500 hover:via-purple-600 hover:to-pink-600">
+                    <ExternalLink size={16} />
+                    <span className="text-sm font-medium">Live</span>
                   </Button>
                 </a>
               )}
