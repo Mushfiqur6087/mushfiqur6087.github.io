@@ -119,7 +119,8 @@ const Projects = () => {
       description: "TexLa is a custom-built car you can steer just by tilting your controller, thanks to gyroscope-based wireless control. It streams real-time video and connects to a mobile app, making remote driving both fun and interactive.",
       image: "/images/texla.jpg",
       technologies: ["Arduino", "ESP32", "C/C++", "Sensors"],
-      liveUrl: "https://www.youtube.com/watch?v=h2iItoTpC2I",
+      liveUrl: "#",
+      demoUrls: [{ label: "Demo", url: "https://www.youtube.com/watch?v=h2iItoTpC2I" }],
       githubUrl: "#",
       startDate: new Date("2024-02-19"),
       endDate: new Date("2024-03-19"),
@@ -270,13 +271,13 @@ const Projects = () => {
                 </div>
                 
                 {/* Action Buttons */}
-                <div className="flex gap-3">
+                <div className="flex flex-wrap gap-3">
                   {project.githubUrl !== "#" && (
                     <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1"
+                      className="flex-1 min-w-[120px]"
                     >
                       <Button 
                         size="sm" 
@@ -294,7 +295,7 @@ const Projects = () => {
                       href={demo.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1"
+                      className="flex-1 min-w-[120px]"
                     >
                       <Button 
                         size="sm" 
@@ -311,7 +312,7 @@ const Projects = () => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1"
+                      className="flex-1 min-w-[120px]"
                     >
                       <Button 
                         size="sm" 
@@ -399,9 +400,9 @@ const Projects = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
               {selectedProject.githubUrl !== "#" && (
-                <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
+                <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[120px]">
                   <Button size="sm" className="bg-slate-800/50 hover:bg-blue-900/50 border border-slate-700 hover:border-blue-400/50 text-white hover:text-blue-400 flex justify-center items-center gap-2 transition-all duration-300 w-full group">
                     <Github size={16} className="group-hover:rotate-12 transition-all duration-300" />
                     <span className="text-sm font-medium">Code</span>
@@ -409,7 +410,7 @@ const Projects = () => {
                 </a>
               )}
               {selectedProject.demoUrls && selectedProject.demoUrls.map((demo, idx) => (
-                <a key={idx} href={demo.url} target="_blank" rel="noopener noreferrer" className="flex-1">
+                <a key={idx} href={demo.url} target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[120px]">
                   <Button size="sm" className="border-none text-white flex justify-center items-center gap-2 transition-all duration-300 w-full group bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400">
                     <FaYoutube size={16} />
                     <span className="text-sm font-medium">{demo.label}</span>
@@ -417,7 +418,7 @@ const Projects = () => {
                 </a>
               ))}
               {selectedProject.liveUrl && selectedProject.liveUrl !== "#" && (
-                <a href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
+                <a href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[120px]">
                   <Button size="sm" className="border-none text-white flex justify-center items-center gap-2 transition-all duration-300 w-full group bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 hover:from-blue-500 hover:via-purple-600 hover:to-pink-600">
                     <ExternalLink size={16} />
                     <span className="text-sm font-medium">Live</span>
