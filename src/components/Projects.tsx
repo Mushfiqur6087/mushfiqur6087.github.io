@@ -44,10 +44,10 @@ const Projects = () => {
       category: "AI Agent"
     },
     {
-      title: "Dormie - Hall Management System",
+      title: "Dormie",
       description: "A comprehensive Hall Management System that automates dormitory administration. Features student registration, room allocation & tracking, fee collection & dues management, complaint handling, lost & found, and a Mess-Manager role — all behind role-based access control for Admins, Provosts, and Students. Built with a Next.js frontend, Spring Boot backend, Spring Data JPA for persistence, and fully containerised with Docker Compose for one-command deployment.",
       image: "/images/dormie.png",
-      technologies: ["Next.js", "Spring Boot", "Spring Data JPA", "MySQL", "Docker"],
+      technologies: ["Next.js", "Spring Boot", "Spring Data JPA", "PostgreSQL", "Docker"],
       liveUrl: "#",
       demoUrls: [
         { label: "Feature Demo", url: "https://www.youtube.com/watch?v=bEW4wTEY1lo" },
