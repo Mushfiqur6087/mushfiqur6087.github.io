@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Github, ExternalLink, Calendar, Filter } from "lucide-react";
+import { Github, ExternalLink, Calendar, Filter, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FaYoutube } from "react-icons/fa";
 
@@ -17,6 +17,7 @@ interface Project {
 
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const projects: Project[] = [
     {
@@ -208,7 +209,11 @@ const Projects = () => {
                   {project.title}
                 </h3>
                 
-                <p className="text-gray-400 mb-5 text-sm leading-relaxed line-clamp-3 hover:text-blue-300 transition-colors duration-300 cursor-default">
+                <p
+                  className="text-gray-400 mb-5 text-sm leading-relaxed line-clamp-3 hover:text-blue-300 transition-colors duration-300 cursor-pointer select-none"
+                  title="Click to read more"
+                  onClick={() => setSelectedProject(project)}
+                >
                   {project.description}
                 </p>
                 
@@ -300,6 +305,100 @@ const Projects = () => {
           </div>
         )}
       </div>
+
+      {/* Floating Description Modal */}
+      {selectedProject && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{ animation: "fadeIn 0.2s ease" }}
+          onClick={() => setSelectedProject(null)}
+        >
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+
+          {/* Modal Card */}
+          <div
+            className="relative z-10 max-w-2xl w-full bg-slate-900/90 backdrop-blur-xl border border-slate-700/60 rounded-2xl shadow-2xl shadow-blue-500/10 p-8"
+            style={{ animation: "slideUp 0.25s ease" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setSelectedProject(null)}
+              className="absolute top-4 right-4 p-2 rounded-xl text-gray-400 hover:text-white hover:bg-slate-700/50 transition-all duration-200"
+              aria-label="Close"
+            >
+              <X size={20} />
+            </button>
+
+            {/* Category badge */}
+            <span className="inline-block px-3 py-1 mb-4 bg-blue-500/10 border border-blue-400/20 text-blue-400 text-xs font-medium rounded-xl">
+              {selectedProject.category}
+            </span>
+
+            {/* Title */}
+            <h3 className="text-2xl font-bold text-white mb-4">
+              {selectedProject.title}
+            </h3>
+
+            {/* Full description */}
+            <p className="text-gray-300 text-sm leading-relaxed mb-6">
+              {selectedProject.description}
+            </p>
+
+            {/* Date */}
+            <div className="flex items-center gap-2 mb-5 text-xs text-gray-500">
+              <Calendar size={14} />
+              <span>{formatDateRange(selectedProject.startDate, selectedProject.endDate)}</span>
+            </div>
+
+            {/* Technologies */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              {selectedProject.technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-3 py-1 bg-gradient-to-r from-blue-400/20 to-purple-500/20 text-blue-400 rounded-lg text-xs font-medium border border-blue-400/20"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex gap-3">
+              {selectedProject.githubUrl !== "#" && (
+                <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
+                  <Button size="sm" className="bg-slate-800/50 hover:bg-blue-900/50 border border-slate-700 hover:border-blue-400/50 text-white hover:text-blue-400 flex justify-center items-center gap-2 transition-all duration-300 w-full group">
+                    <Github size={16} className="group-hover:rotate-12 transition-all duration-300" />
+                    <span className="text-sm font-medium">Code</span>
+                  </Button>
+                </a>
+              )}
+              {selectedProject.liveUrl && selectedProject.liveUrl !== "#" && (
+                <a href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
+                  <Button size="sm" className={`border-none text-white flex justify-center items-center gap-2 transition-all duration-300 w-full group ${
+                    selectedProject.liveUrl.includes("youtube.com")
+                      ? "bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400"
+                      : "bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 hover:from-blue-500 hover:via-purple-600 hover:to-pink-600"
+                  }`}>
+                    {selectedProject.liveUrl.includes("youtube.com") ? (
+                      <><FaYoutube size={16} /><span className="text-sm font-medium">Demo</span></>
+                    ) : (
+                      <><ExternalLink size={16} /><span className="text-sm font-medium">Live</span></>
+                    )}
+                  </Button>
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Keyframe animations */}
+      <style>{`
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(24px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+      `}</style>
     </section>
   );
 };
