@@ -22,10 +22,10 @@ const Projects = () => {
   const projects: Project[] = [
     {
       title: "Survey Website",
-      description: "Full-stack web app for visualising pedestrian trajectories, placing knot annotations in real time, and reviewing session statistics. Developed as part of a research project to analyse pedestrian movement pattern.", 
+      description: "Full-stack web app for visualising pedestrian trajectories, placing knot annotations and reconstructing trajectories for simulation analysis. Developed as part of a research project to analyse pedestrian movement pattern.",
       image: "images/survey.png",
       technologies: ["Spring Boot", "Next.js", "Python", "PostgreSQL", "TailwindCSS"],
-      liveUrl: "#",
+      liveUrl: "https://motiontagger.com/",
       githubUrl: "https://github.com/Mushfiqur6087/Survey-website",
       startDate: new Date("2025-05-01"),
       endDate: new Date("2025-05-30"),
