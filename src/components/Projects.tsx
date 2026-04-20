@@ -40,7 +40,7 @@ const Projects = () => {
       githubUrl: "https://github.com/Mushfiqur6087/Testing-Agent",
       startDate: new Date("2025-05-15"),
       endDate: new Date("2025-06-06"),
-      category: "Machine Learning"
+      category: "AI Agent"
     },
     {
       title: "Neural Network from Scratch",
@@ -51,7 +51,7 @@ const Projects = () => {
       githubUrl: "https://github.com/Mushfiqur6087/Neural-Network-From-Scratch",
       startDate: new Date("2024-06-15"),
       endDate: new Date("2024-06-23"),
-      category: "Machine Learning"
+      category: "Deep Learning"
     },
     {
       title: "C Compiler",
